@@ -31,27 +31,27 @@ Voici une estimation approximative du temps de travail pour chaque grand poste d
     </tr>
     <tr>
       <td>Développement de l'API</td>
-      <td>5</td>
+      <td>3</td>
     </tr>
     <tr>
       <td>Développement de l'administration</td>
-      <td>4</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>Gestion de la base de données</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Tests et débogage</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Documentation</td>
       <td>1</td>
     </tr>
     <tr>
+      <td>Tests et débogage</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
       <th>Total</th>
-      <th>15</th>
+      <th>7</th>
     </tr>
   </tbody>
 </table>
@@ -131,15 +131,6 @@ Endpoint pour effectuer une conversion de devise selon une paire existante
 </details>
 <details>
 <summary><strong>Diagramme de la base de données</strong></summary>
+<iframe width="560" height="315" src='https://dbdiagram.io/embed/64b662bc02bd1c4a5e43748c'> </iframe>
 
-Diagramme de la base de données
-Voici le diagramme des tables MySQL :
-
-+--------------+        +---------------+
-| Currencies   |        | Conversion    |
-+--------------+        +---------------+
-| id           |        | id            |
-| code         |        | currency_from |
-| name         |        | currency_to   |
-+--------------+        | rate          |
-                        +---------------+
+https://dbdiagram.io/d/64b662bc02bd1c4a5e43748c
