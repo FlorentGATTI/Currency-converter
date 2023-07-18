@@ -131,6 +131,8 @@ Endpoint pour effectuer une conversion de devise selon une paire existante
 </details>
 <details>
 <summary><strong>Diagramme de la base de données</strong></summary>
-<iframe width="560" height="315" src='https://dbdiagram.io/embed/64b662bc02bd1c4a5e43748c'> </iframe>
 
+<iframe width="560" height="315" src='https://dbdiagram.io/embed/64b662bc02bd1c4a5e43748c'> </iframe>
 https://dbdiagram.io/d/64b662bc02bd1c4a5e43748c
+
+![Diagramme de la base de données](./Diagram-currencie.svg)
