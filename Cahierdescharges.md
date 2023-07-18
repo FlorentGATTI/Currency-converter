@@ -1,4 +1,4 @@
-Cahier des charges - Conversion Monétaire
+<strong>Cahier des charges - Conversion Monétaire</strong> 
 <details>
 <summary><strong>Analyse client</strong></summary>
 MoneyValue est une startup du domaine de la finance qui souhaite développer une plateforme de conversion monétaire. L'objectif est de fournir un service public et gratuit permettant aux utilisateurs de convertir des devises. L'application doit être développée en utilisant Laravel comme framework back-end et Vue.js comme framework front-end.
