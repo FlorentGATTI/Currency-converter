@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/admin/currencies', 'App\Http\Controllers\Admin\CurrencyController');
+Route::resource('/admin/pairs', 'App\Http\Controllers\Admin\PairController');
+Route::resource('/admin/conversions', 'App\Http\Controllers\Admin\ConversionController');
+
