@@ -7,7 +7,7 @@ Ce projet est une application de conversion monétaire développée avec Laravel
 ### Back-end (Laravel)
 
 1. Assurez-vous d'avoir PHP et Composer installés sur votre système.
-2. Clonez ce dépôt : `git clone https://github.com/votre-utilisateur/projet-conversion-monnaire.git`.
+2. Clonez ce dépôt : `git clone https://github.com/FlorentGATTI/Currency-converter`.
 3. Accédez au dossier backend : `cd currency_back`.
 4. Installez les dépendances : `composer install`.
 5. Créez une copie du fichier `.env.example` et renommez-la en `.env`.
@@ -28,7 +28,7 @@ Le back-end sera accessible à l'adresse `http://localhost:8000`.
 5. Configurez l'URL de l'API back-end dans le fichier `.env`.
 6. Compilez les ressources front-end : `npm run dev` (pour le développement) ou `npm run build` (pour la production).
 
-Le front-end sera accessible à l'adresse `http://localhost:8080`.
+Le front-end sera accessible à l'adresse `http://localhost:5173`.
 
 ## Structure du Projet
 

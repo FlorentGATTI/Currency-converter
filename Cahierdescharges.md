@@ -132,7 +132,7 @@ Endpoint pour effectuer une conversion de devise selon une paire existante
 <details>
 <summary><strong>Diagramme de la base de données</strong></summary>
 
-![Diagramme de la base de données](./Diagram-currencie.svg)
+![Diagramme de la base de données](./diagram-projet.png)
 
 "Je met le link ici au cas ou le diagramme ne s'affiche pas"
 https://dbdiagram.io/d/64b662bc02bd1c4a5e43748c
