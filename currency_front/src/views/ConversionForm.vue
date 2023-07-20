@@ -46,10 +46,28 @@ const amount = ref('');
 const conversionResult = ref('');
 
 const convertCurrency = () => {
-  // Mettre en œuvre la logique pour effectuer la conversion ici
-  // Vous pouvez utiliser des appels API pour communiquer avec l'API Laravel
-  // et effectuer la conversion côté serveur
-  // Mettez à jour la propriété 'conversionResult' avec le résultat de la conversion
+  const selectedCurrencyFromObj = currencies.find(currency => currency.code === selectedCurrencyFrom.value);
+  const selectedCurrencyToObj = currencies.find(currency => currency.code === selectedCurrencyTo.value);
+
+  if (selectedCurrencyFromObj && selectedCurrencyToObj) {
+    const rateFromTo = pairs.find(pair => pair.currency_from.code === selectedCurrencyFrom.value && pair.currency_to.code === selectedCurrencyTo.value);
+    const rateToFrom = pairs.find(pair => pair.currency_from.code === selectedCurrencyTo.value && pair.currency_to.code === selectedCurrencyFrom.value);
+
+    if (rateFromTo && rateToFrom) {
+      const amountNum = parseFloat(amount.value);
+      if (!isNaN(amountNum)) {
+        const conversionResultFromTo = amountNum * parseFloat(rateFromTo.rate);
+        const conversionResultToFrom = amountNum / parseFloat(rateToFrom.rate);
+        conversionResult.value = `${conversionResultFromTo.toFixed(2)} (${selectedCurrencyToObj.name}) / ${conversionResultToFrom.toFixed(2)} (${selectedCurrencyFromObj.name})`;
+      } else {
+        conversionResult.value = 'Veuillez entrer un montant valide.';
+      }
+    } else {
+      conversionResult.value = 'Impossible de trouver le taux de conversion.';
+    }
+  } else {
+    conversionResult.value = 'Veuillez sélectionner des devises valides.';
+  }
 };
 </script>
 

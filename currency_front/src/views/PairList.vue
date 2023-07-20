@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <h1 class="my-4">Liste des paires de conversion</h1>
+    <h1>Liste des paires de conversion</h1>
     <ul class="list-group">
-      <!-- Afficher chaque paire de conversion -->
       <li v-for="pair in pairs" :key="pair.id" class="list-group-item">
-        {{ pair.currency_from }} ➔ {{ pair.currency_to }} ({{ pair.rate }})
+        <div v-if="pair.source_currency && pair.target_currency">
+          {{ pair.source_currency.name }} ➔ {{ pair.target_currency.name }} ({{ pair.rate }})
+        </div>
       </li>
     </ul>
   </div>

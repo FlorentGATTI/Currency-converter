@@ -4,15 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Pair;
 
 class PairController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        //
+        $pairs = Pair::with('sourceCurrency', 'targetCurrency')->get();
+
+        return response()->json([
+            'pairs' => $pairs,
+        ], 200);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Conversions;
 use Illuminate\Http\Request;
 
 class ConversionController extends Controller
@@ -12,7 +13,11 @@ class ConversionController extends Controller
      */
     public function index()
     {
-        //
+        // Récupérer toutes les conversions depuis la base de données
+        $conversions = Conversions::all();
+
+        // Renvoyer la liste des conversions sous forme de réponse JSON
+        return response()->json(['conversions' => $conversions]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Currency;
 use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
@@ -12,7 +13,11 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        //
+        // Récupérer toutes les devises depuis la base de données
+        $currencies = Currency::all();
+
+        // Renvoyer la liste des devises sous forme de réponse JSON
+        return response()->json(['currencies' => $currencies]);
     }
 
     /**
