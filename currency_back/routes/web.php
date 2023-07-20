@@ -17,3 +17,7 @@ Route::resource('/admin/currencies', 'App\Http\Controllers\Admin\CurrencyControl
 Route::resource('/admin/pairs', 'App\Http\Controllers\Admin\PairController');
 Route::resource('/admin/conversions', 'App\Http\Controllers\Admin\ConversionController');
 
+
+Route::get('/', function () {
+    return view('documentation');
+});

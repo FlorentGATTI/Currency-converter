@@ -13,11 +13,14 @@ class CreatePairsTable extends Migration
             $table->unsignedBigInteger('currency_from');
             $table->unsignedBigInteger('currency_to');
             $table->decimal('rate', 10, 2);
-            $table->integer('conversion_count')->default(0);
+            $table->integer('conversions_count')->default(0);
             $table->timestamps();
 
             $table->foreign('currency_from')->references('id')->on('currencies');
             $table->foreign('currency_to')->references('id')->on('currencies');
+
+            $table->index('currency_from');
+            $table->index('currency_to');
         });
     }
 
@@ -26,4 +29,3 @@ class CreatePairsTable extends Migration
         Schema::dropIfExists('pairs');
     }
 }
-

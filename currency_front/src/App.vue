@@ -1,17 +1,28 @@
 <template>
-  <div>
-    <CurrencyList :currencies="currencies" />
-    <PairList :pairs="pairs" />
-    <ConversionForm :currencies="currencies" />
-  </div>
+  <v-container>
+    <h1>Liste des paires de conversion</h1>
+    <v-list>
+      <v-list-item v-for="pair in pairs" :key="pair.id">
+        <v-list-item-content>
+          <v-list-item-title>{{ pair.currency_from }} ➔ {{ pair.currency_to }} ({{ pair.rate }})</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+  </v-container>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import CurrencyList from '@/views/CurrencyList.vue';
-import PairList from '@/views/PairList.vue';
-import ConversionForm from '@/views/ConversionForm.vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-const currencies = ref([]); // Tableau pour stocker les devises
-const pairs = ref([]); // Tableau pour stocker les paires de conversion
+const pairs = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:8000/api/pairs');
+    pairs.value = response.data; // Assurez-vous que le format des données est correct
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données:', error);
+  }
+});
 </script>

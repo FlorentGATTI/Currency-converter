@@ -5,11 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Conversion extends Model
+class Conversions extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['currency_from', 'currency_to', 'rate'];
+    protected $fillable = ['pair_id', 'count'];
+
+    /**
+     * Récupère la paire de devises associée à cette conversion.
+     */
+    public function pair()
+    {
+        return $this->belongsTo(Pair::class, 'pair_id');
+    }
 
     /**
      * Récupère la devise source de cette conversion.

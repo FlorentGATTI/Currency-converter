@@ -9,14 +9,14 @@ class Pair extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['currency_from', 'currency_to', 'rate'];
 
     /**
      * Récupère les conversions associées à cette paire de devises.
      */
     public function conversions()
     {
-        return $this->hasMany(Conversion::class);
+        return $this->hasMany(Conversions::class, 'pair_id');
     }
 
     /**
@@ -24,7 +24,7 @@ class Pair extends Model
      */
     public function sourceCurrency()
     {
-        return $this->belongsTo(Currency::class, 'currency_from', 'id');
+        return $this->belongsTo(Currency::class, 'currency_from');
     }
 
     /**
@@ -32,6 +32,6 @@ class Pair extends Model
      */
     public function targetCurrency()
     {
-        return $this->belongsTo(Currency::class, 'currency_to', 'id');
+        return $this->belongsTo(Currency::class, 'currency_to');
     }
 }
