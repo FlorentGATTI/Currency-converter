@@ -6,28 +6,18 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
     public function run()
     {
         $this->call([
             CurrenciesSeeder::class,
             PairsSeeder::class,
-            ConversionsSeeder::class,
+            ConversionSeeder::class,
+            AdminSeeder::class, // Ajout du seeder AdminSeeder pour créer l'utilisateur administrateur
         ]);
     }
 }
-
-
-
-
-/**
-     * Seed the application's database.
-     */
-    // public function run(): void
-    // {
-    //     // \App\Models\User::factory(10)->create();
-
-    //     // \App\Models\User::factory()->create([
-    //     //     'name' => 'Test User',
-    //     //     'email' => 'test@example.com',
-    //     // ]);
-    // }

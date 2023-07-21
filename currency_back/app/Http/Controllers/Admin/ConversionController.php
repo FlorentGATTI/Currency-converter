@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Conversions;
+use App\Models\Currency;
+use App\Models\Conversion;
+use App\Models\Pair;
 use Illuminate\Http\Request;
 
 class ConversionController extends Controller
@@ -13,11 +15,11 @@ class ConversionController extends Controller
      */
     public function index()
     {
-        // Récupérer toutes les conversions depuis la base de données
-        $conversions = Conversions::all();
+        // Récupérer toutes les Conversion depuis la base de données
+        $Conversion = Conversion::all();
 
-        // Renvoyer la liste des conversions sous forme de réponse JSON
-        return response()->json(['conversions' => $conversions], 200);
+        // Renvoyer la liste des Conversion sous forme de réponse JSON
+        return response()->json(['Conversion' => $Conversion], 200);
     }
 
     /**
@@ -30,20 +32,38 @@ class ConversionController extends Controller
             'currency_from' => 'required|exists:currencies,id',
             'currency_to' => 'required|exists:currencies,id',
             'amount' => 'required|numeric',
-            'result' => 'required|numeric',
         ]);
 
+        // Récupérer les devises source et cible
+        $currencyFrom = Currency::find($request->input('currency_from'));
+        $currencyTo = Currency::find($request->input('currency_to'));
+
+        // Vérifier que les devises existent dans la base de données
+        if (!$currencyFrom || !$currencyTo) {
+            return response()->json(['message' => 'Devises introuvables'], 404);
+        }
+
+        // Vérifier que la paire de conversion existe dans la base de données
+        $pair = Pair::where('currency_from', $currencyFrom->id)->where('currency_to', $currencyTo->id)->first();
+        if (!$pair) {
+            return response()->json(['message' => 'Paire de conversion introuvable'], 404);
+        }
+
+        // Effectuer la conversion
+        $amount = $request->input('amount');
+        $rate = $pair->rate;
+        $result = $amount * $rate;
+
         // Créer une nouvelle conversion avec les données reçues
-        $conversion = new Conversions();
-        $conversion->currency_from = $request->input('currency_from');
-        $conversion->currency_to = $request->input('currency_to');
-        $conversion->amount = $request->input('amount');
-        $conversion->result = $request->input('result');
+        $conversion = new Conversion();
+        $conversion->pair_id = $pair->id;
+        $conversion->count = $amount;
         $conversion->save();
 
-        // Retourner la nouvelle conversion en réponse JSON
-        return response()->json(['conversion' => $conversion], 201);
+        // Retourner la conversion en réponse JSON avec le résultat de la conversion
+        return response()->json(['conversion' => $conversion, 'result' => $result], 201);
     }
+
 
     /**
      * Display the specified resource.
@@ -51,7 +71,7 @@ class ConversionController extends Controller
     public function show(string $id)
     {
         // Récupérer la conversion par son identifiant
-        $conversion = Conversions::find($id);
+        $conversion = Conversion::find($id);
 
         if (!$conversion) {
             // Retourner une réponse JSON avec un message d'erreur si la conversion n'est pas trouvée
@@ -76,7 +96,7 @@ class ConversionController extends Controller
         ]);
 
         // Récupérer la conversion par son identifiant
-        $conversion = Conversions::find($id);
+        $conversion = Conversion::find($id);
 
         if (!$conversion) {
             // Retourner une réponse JSON avec un message d'erreur si la conversion n'est pas trouvée
@@ -112,7 +132,7 @@ class ConversionController extends Controller
     public function destroy(string $id)
     {
         // Récupérer la conversion par son identifiant
-        $conversion = Conversions::find($id);
+        $conversion = Conversion::find($id);
 
         if (!$conversion) {
             // Retourner une réponse JSON avec un message d'erreur si la conversion n'est pas trouvée

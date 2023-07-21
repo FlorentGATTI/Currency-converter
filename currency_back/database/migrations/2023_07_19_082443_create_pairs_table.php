@@ -13,7 +13,7 @@ class CreatePairsTable extends Migration
             $table->unsignedBigInteger('currency_from');
             $table->unsignedBigInteger('currency_to');
             $table->decimal('rate', 10, 2);
-            $table->integer('conversions_count')->default(0);
+            $table->integer('Conversion_count')->default(0);
             $table->timestamps();
 
             $table->foreign('currency_from')->references('id')->on('currencies');

@@ -12,19 +12,19 @@ class Currency extends Model
     protected $fillable = ['code', 'name'];
 
     /**
-     * Récupère les conversions où cette devise est utilisée comme devise source.
+     * Récupère les Conversion où cette devise est utilisée comme devise source.
      */
-    public function conversionsAsSource()
+    public function ConversionAsSource()
     {
-        return $this->hasMany(Conversions::class, 'currency_from', 'id');
+        return $this->hasMany(Conversion::class, 'currency_from', 'id');
     }
 
     /**
-     * Récupère les conversions où cette devise est utilisée comme devise cible.
+     * Récupère les Conversion où cette devise est utilisée comme devise cible.
      */
-    public function conversionsAsTarget()
+    public function ConversionAsTarget()
     {
-        return $this->hasMany(Conversions::class, 'currency_to', 'id');
+        return $this->hasMany(Conversion::class, 'currency_to', 'id');
     }
 
     /**

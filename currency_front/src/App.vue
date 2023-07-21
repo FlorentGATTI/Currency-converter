@@ -43,7 +43,7 @@
     </nav>
 
     <!-- Afficher la liste des paires de conversion sur la page d'accueil -->
-    <PairList :pairs="pairs" />
+    <router-view :pairs="pairs" />
 
   </v-container>
 </template>
@@ -51,14 +51,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import PairList from '@/views/PairList.vue';
 
 const pairs = ref([]);
 
 onMounted(async () => {
   try {
     const responsePairs = await axios.get('http://localhost:8000/api/admin/pairs');
-    console.log("data pairs", responsePairs);
     pairs.value = responsePairs.data.pairs;
   } catch (error) {
     console.error('Erreur lors de la récupération des données:', error);

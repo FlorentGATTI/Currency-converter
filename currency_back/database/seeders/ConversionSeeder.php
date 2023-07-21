@@ -2,19 +2,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Conversions;
+use App\Models\Conversion;
 
-class ConversionsSeeder extends Seeder
+class ConversionSeeder extends Seeder
 {
     public function run()
     {
-        // Insérez les données pour la table conversions
-        Conversions::create([
+        // Insérez les données pour la table Conversion
+        Conversion::create([
             'pair_id' => 1,
             'count' => 53,
         ]);
 
-        Conversions::create([
+        Conversion::create([
             'pair_id' => 2,
             'count' => 25,
         ]);

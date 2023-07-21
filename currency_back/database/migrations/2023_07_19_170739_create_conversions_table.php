@@ -20,6 +20,6 @@ class CreateConversionsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('conversions');
+        Schema::dropIfExists('Conversion');
     }
 }

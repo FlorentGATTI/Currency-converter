@@ -14,9 +14,9 @@ class Pair extends Model
     /**
      * Récupère les conversions associées à cette paire de devises.
      */
-    public function conversions()
+    public function conversion()
     {
-        return $this->hasMany(Conversions::class, 'pair_id');
+        return $this->hasMany(Conversion::class, 'pair_id');
     }
 
     /**
