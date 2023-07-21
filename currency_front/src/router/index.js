@@ -1,23 +1,30 @@
+// router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
+import PairList from '@/views/PairList.vue';
 import CurrencyList from '@/views/CurrencyList.vue';
-import ConversionList from '@/views/ConversionForm.vue';
+import Logout from '@/views/Logout.vue';
 
 const routes = [
   {
-    path: '/', // Le chemin de la route
-    name: 'home', // Le nom de la route
-    component: CurrencyList, // Le composant à afficher pour cette route (ici, CurrencyList)
+    path: '/',
+    name: 'Home',
+    component: PairList // Utilisez le composant PairList pour la route d'accueil
   },
   {
-    path: '/conversions', // Le chemin de la route
-    name: 'conversions', // Le nom de la route
-    component: ConversionList, // Le composant à afficher pour cette route (ici, ConversionList)
+    path: '/currencies',
+    name: 'CurrencyList',
+    component: CurrencyList
   },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  }
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+  history: createWebHistory(),
+  routes
 });
 
 export default router;

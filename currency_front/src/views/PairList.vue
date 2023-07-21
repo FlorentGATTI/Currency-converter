@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <h1>Liste des paires de conversion</h1>
+    <h1 class="my-4">Liste des paires</h1>
     <ul class="list-group">
+      <!-- Afficher chaque paire -->
       <li v-for="pair in pairs" :key="pair.id" class="list-group-item">
-        <div v-if="pair.source_currency && pair.target_currency">
-          {{ pair.source_currency.name }} ➔ {{ pair.target_currency.name }} ({{ pair.rate }})
-        </div>
+        {{ pair.source_currency.name }} ({{ pair.source_currency.code }}) -> {{ pair.target_currency.name }} ({{ pair.target_currency.code }})
       </li>
     </ul>
   </div>
@@ -14,7 +13,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps(['pairs']);
+const { pairs } = defineProps(['pairs']); // Utilisez defineProps pour recevoir les props de la route
 </script>
 
 <style>

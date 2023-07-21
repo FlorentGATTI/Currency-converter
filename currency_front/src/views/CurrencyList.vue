@@ -11,9 +11,20 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-const props = defineProps(['currencies']);
+const currencies = ref([]);
+
+onMounted(async () => {
+  try {
+    const responseCurrencies = await axios.get('http://localhost:8000/api/admin/currencies');
+    console.log("data currencies", responseCurrencies);
+    currencies.value = responseCurrencies.data.currencies;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données:', error);
+  }
+});
 </script>
 
 <style>
