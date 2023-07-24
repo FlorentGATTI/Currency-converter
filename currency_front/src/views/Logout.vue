@@ -14,8 +14,6 @@ const logout = async () => {
     const response = await axios.post('http://localhost:8000/api/admin/logout');
 
     if (response.data.success) {
-      // La déconnexion a réussi, vous pouvez rediriger l'utilisateur vers la page de connexion
-      console.log('Déconnexion réussie !');
       isAdminLoggedIn.value = false;
       router.push('/login');
     } else {
@@ -28,7 +26,6 @@ const logout = async () => {
 </script>
 
 <style>
-/* Styles pour gérer le responsive */
 
 /* Pour les petits écrans */
 @media screen and (max-width: 600px) {

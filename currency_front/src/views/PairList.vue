@@ -117,7 +117,7 @@ const addPair = async () => {
     const response = await axios.post(apiUrl, {
       currency_from: sourceCurrencyId,
       currency_to: targetCurrencyId,
-      rate: 1.0, // Remplacez cette valeur par le taux de conversion réel, si nécessaire
+      rate: 1.0,
     });
 
     if (response.data.success) {
@@ -202,9 +202,6 @@ const getRequestsCount = (pairId) => {
   //   return 0;
   // }
 
-  // // Ici, vous devez implémenter la logique pour obtenir le nombre de requêtes pour cette paire
-  // // Par exemple, vous pouvez appeler une API pour récupérer le nombre de requêtes associées à cette paire.
-  // // Pour cette démonstration, je vais simplement retourner une valeur aléatoire entre 1 et 100.
   // return Math.floor(Math.random() * 100) + 1;
 };
 
@@ -223,7 +220,6 @@ const reloadPairs = async () => {
   try {
     const response = await axios.get(apiUrl);
     if (response.data.success) {
-      // Mettre à jour la liste des paires directement en modifiant la référence réactive
       pairs.value = response.data.pairs;
     }
   } catch (error) {

@@ -28,5 +28,5 @@ onMounted(async () => {
 </script>
 
 <style>
-/* Ajoutez ici vos styles personnalisés si nécessaire */
+
 </style>

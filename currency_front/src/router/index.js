@@ -46,4 +46,4 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-export { router, isAdminLoggedIn }; // Export the router and isAdminLoggedIn variables
+export { router, isAdminLoggedIn }; 

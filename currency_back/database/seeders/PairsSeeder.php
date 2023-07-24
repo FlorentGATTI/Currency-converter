@@ -23,12 +23,12 @@ class PairsSeeder extends Seeder
         $pair = Pair::create([
             'currency_from' => $currencyFrom->id,
             'currency_to' => $currencyTo->id,
-            'rate' => 1.23, // Remplacez cette valeur par le taux réel si nécessaire
+            'rate' => 1.23, 
         ]);
         $pair2 = Pair::create([
             'currency_from' => $currencyTo->id,
             'currency_to' => $currencyFrom->id,
-            'rate' => 0.77, // Remplacez cette valeur par le taux réel si nécessaire
+            'rate' => 0.77, 
         ]);
         
     }

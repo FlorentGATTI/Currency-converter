@@ -32,24 +32,15 @@ export default {
     const isEmailValid = ref(true);
     const isPasswordValid = ref(true);
 
-    // ... (autres imports)
-
     const login = async () => {
-      // ... (validation de l'email et du mot de passe)
-
-      // Si tout est valide, vous pouvez continuer avec la logique de connexion
       if (isEmailValid.value && isPasswordValid.value) {
         try {
           const response = await axios.post("http://localhost:8000/api/admin/login", {
-            // Utilisez une URL relative ici
             email: email.value,
             password: password.value,
           });
 
-          // Vérifier la réponse de l'API pour savoir si la connexion a réussi
           if (response.data.success) {
-            // La connexion a réussi, vous pouvez rediriger l'utilisateur vers la page d'accueil
-            console.log("Connexion réussie !");
             isAdminLoggedIn.value = true;
             router.push('/')
           } else {
@@ -75,7 +66,6 @@ export default {
 </script>
 
 <style>
-/* Styles pour gérer le responsive */
 
 /* Pour les petits écrans */
 @media screen and (max-width: 600px) {

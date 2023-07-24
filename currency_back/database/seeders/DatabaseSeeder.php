@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             CurrenciesSeeder::class,
             PairsSeeder::class,
             ConversionSeeder::class,
-            AdminSeeder::class, // Ajout du seeder AdminSeeder pour créer l'utilisateur administrateur
+            AdminSeeder::class, 
         ]);
     }
 }

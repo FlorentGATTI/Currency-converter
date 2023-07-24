@@ -72,5 +72,5 @@ onMounted(async () => {
 
 
 <style>
-/* Ajoutez ici vos styles personnalisés si nécessaire */
+
 </style>
