@@ -29,22 +29,24 @@ Le back-end sera accessible à l'adresse `http://localhost:8000`.
 6. Compilez les ressources front-end : `npm run dev` (pour le développement) ou `npm run build` (pour la production).
 
 Le front-end sera accessible à l'adresse `http://localhost:5173`.
+Pour se connecter nous avons besoin de l'adresse e-mail : "admin@admin.com" et du mot de passe : "admin".
+(N'oublier pas de bien exécuter les seeders !)
 
 ## Structure du Projet
 
 - `currency_back` : Contient le code du back-end Laravel.
-- `currency_app` : Contient le code du front-end Vue.js.
+- `currency_front` : Contient le code du front-end Vue.js.
 - `currency_back/app` : Les contrôleurs, les modèles et les autres fichiers Laravel.
 - `currency_back/config` : Les fichiers de configuration du back-end.
 - `currency_back/database` : Les migrations et les seeders.
-- `currency_app/src` : Le code source Vue.js.
-- `currency_app/public` : Les fichiers publics du front-end.
+- `currency_front/src` : Le code source Vue.js.
+- `currency_front/public` : Les fichiers publics du front-end.
 - ...
 
 ## Auteurs
 
-- Florent GATTI
+- Florent GATTI DM-22_École Multimedia
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+Ce projet est sous licence MIT. 

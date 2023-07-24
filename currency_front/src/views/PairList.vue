@@ -194,9 +194,18 @@ const handleApiErrors = (error) => {
 
 // Propriété calculée pour obtenir le nombre de requêtes effectuées pour une paire
 const getRequestsCount = (pairId) => {
-  // ... votre implémentation pour obtenir le nombre de requêtes ...
-  // Remarque : vous devez implémenter cette fonction selon votre logique métier.
-  // À ce stade, cette fonction est laissée vide car elle n'était pas présente dans le code initial.
+  // // Récupérer la paire à partir de son ID
+  // const pair = pairs.value.find((pair) => pair.id === pairId);
+
+  // // Si la paire n'est pas trouvée, retourner 0 (ou toute autre valeur par défaut)
+  // if (!pair) {
+  //   return 0;
+  // }
+
+  // // Ici, vous devez implémenter la logique pour obtenir le nombre de requêtes pour cette paire
+  // // Par exemple, vous pouvez appeler une API pour récupérer le nombre de requêtes associées à cette paire.
+  // // Pour cette démonstration, je vais simplement retourner une valeur aléatoire entre 1 et 100.
+  // return Math.floor(Math.random() * 100) + 1;
 };
 
 // Méthode pour mettre une paire en mode édition

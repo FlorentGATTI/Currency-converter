@@ -48,41 +48,26 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-export default {
-  components: {
-    PairList: () => import('./views/PairList.vue'),
-    CurrencyList: () => import('./views/CurrencyList.vue'),
-    Logout: () => import('./views/Logout.vue'),
-    Login: () => import('./views/Login.vue')
-  },
-  setup() {
-    const pairs = ref([]);
-    const currencies = ref([]);
+const pairs = ref([]);
+const currencies = ref([]);
 
-    onMounted(async () => {
-      try {
-        // Récupérer les paires de conversion depuis l'API
-        const responsePairs = await axios.get('http://localhost:8000/api/admin/pairs');
-        pairs.value = responsePairs.data.pairs;
+onMounted(async () => {
+  try {
+    // Récupérer les paires de conversion depuis l'API
+    const responsePairs = await axios.get('http://localhost:8000/api/admin/pairs');
+    pairs.value = responsePairs.data.pairs;
 
-        // Récupérer les devises depuis l'API
-        const responseCurrencies = await axios.get('http://localhost:8000/api/admin/currencies');
-        currencies.value = responseCurrencies.data.currencies;
-      } catch (error) {
-        console.error('Erreur lors de la récupération des données:', error);
-      }
-    });
-
-    return {
-      pairs,
-      currencies
-    };
+    // Récupérer les devises depuis l'API
+    const responseCurrencies = await axios.get('http://localhost:8000/api/admin/currencies');
+    currencies.value = responseCurrencies.data.currencies;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données:', error);
   }
-};
+});
 </script>
 
 

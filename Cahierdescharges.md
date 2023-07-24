@@ -60,15 +60,15 @@ Veuillez noter que ces estimations peuvent varier en fonction de votre expérien
 </details>
 <details>
 <summary><strong>Liste fonctionnelle</strong></summary>
-Administration
-Système d'authentification pour l'accès à l'administration
-Affichage de la liste des paires de conversion supportées
-Ajout, modification et suppression d'une paire de conversion
-Affichage du nombre de requêtes effectuées pour chaque paire
-API
-Endpoint pour vérifier si le service est fonctionnel
-Endpoint pour récupérer la liste des paires de conversion supportées
-Endpoint pour effectuer une conversion de devise selon une paire existante
+- Administration</br>
+- Système d'authentification pour l'accès à l'administration</br>
+- Affichage de la liste des paires de conversion supportées</br>
+- Ajout, modification et suppression d'une paire de conversion</br>
+- Affichage du nombre de requêtes effectuées pour chaque paire</br>
+- API</br>
+- Endpoint pour vérifier si le service est fonctionnel</br>
+- Endpoint pour récupérer la liste des paires de conversion supportées</br>
+- Endpoint pour effectuer une conversion de devise selon une paire existante</br>
 </details>
 <details>
 <summary><strong>Recettage</strong></summary>
@@ -84,7 +84,7 @@ Endpoint pour effectuer une conversion de devise selon une paire existante
     <tr>
       <td>Système d'authentification</td>
       <td>Oui</td>
-      <td></td>
+      <td>Seulement Admin, générer par le seeders</td>
     </tr>
     <tr>
       <td>Affichage des paires de conversion</td>
@@ -137,3 +137,8 @@ Endpoint pour effectuer une conversion de devise selon une paire existante
 "Je met le link ici au cas ou le diagramme ne s'affiche pas"
 https://dbdiagram.io/d/64b662bc02bd1c4a5e43748c
 
+<summary><strong>Wireframe</strong></summary>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQTi7qBhetmWTMlXmrq0xh7%2FUntitled%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DGUJFTLl8E8qN0DkW-1" allowfullscreen></iframe>
+
+<summary><strong>Adresse Github</strong></summary>
+<p></p>
