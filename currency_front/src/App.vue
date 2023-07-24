@@ -43,26 +43,48 @@
     </nav>
 
     <!-- Afficher la liste des paires de conversion sur la page d'accueil -->
-    <router-view :pairs="pairs" />
+    <router-view :pairs="pairs" :currencies="currencies" />
 
   </v-container>
 </template>
 
-<script setup>
+<script>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-const pairs = ref([]);
+export default {
+  components: {
+    PairList: () => import('./views/PairList.vue'),
+    CurrencyList: () => import('./views/CurrencyList.vue'),
+    Logout: () => import('./views/Logout.vue'),
+    Login: () => import('./views/Login.vue')
+  },
+  setup() {
+    const pairs = ref([]);
+    const currencies = ref([]);
 
-onMounted(async () => {
-  try {
-    const responsePairs = await axios.get('http://localhost:8000/api/admin/pairs');
-    pairs.value = responsePairs.data.pairs;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des données:', error);
+    onMounted(async () => {
+      try {
+        // Récupérer les paires de conversion depuis l'API
+        const responsePairs = await axios.get('http://localhost:8000/api/admin/pairs');
+        pairs.value = responsePairs.data.pairs;
+
+        // Récupérer les devises depuis l'API
+        const responseCurrencies = await axios.get('http://localhost:8000/api/admin/currencies');
+        currencies.value = responseCurrencies.data.currencies;
+      } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+      }
+    });
+
+    return {
+      pairs,
+      currencies
+    };
   }
-});
+};
 </script>
+
 
 <style>
 /* Ajoutez ici vos styles personnalisés si nécessaire */

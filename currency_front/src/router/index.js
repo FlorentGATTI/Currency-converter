@@ -1,32 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import PairList from '@/views/PairList.vue';
-import CurrencyList from '@/views/CurrencyList.vue';
-import Logout from '@/views/Logout.vue';
-import Login from '@/views/Login.vue';
 import { ref } from 'vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: PairList,
+    component: () => import('@/views/PairList.vue'),
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: () => import('@/views/Login.vue'),
   },
   {
     path: '/currencies',
     name: 'CurrencyList',
-    component: CurrencyList,
+    component: () => import('@/views/CurrencyList.vue'),
   },
   {
     path: '/logout',
     name: 'Logout',
-    component: Logout,
+    component: () => import('@/views/Logout.vue'),
   },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),

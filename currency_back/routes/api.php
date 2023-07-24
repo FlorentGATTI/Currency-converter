@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\LoginController; // Ajoutez cette ligne pour importer le contrôleur
-
+use App\Http\Controllers\Admin\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,8 @@ use App\Http\Controllers\Admin\LoginController; // Ajoutez cette ligne pour impo
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// Utilisez le middleware 'auth' pour protéger la route /user
+Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
 });
 
