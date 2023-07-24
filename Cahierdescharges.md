@@ -136,9 +136,15 @@ Veuillez noter que ces estimations peuvent varier en fonction de votre expérien
 
 "Je met le link ici au cas ou le diagramme ne s'affiche pas"
 https://dbdiagram.io/d/64b662bc02bd1c4a5e43748c
+</details>
 
+<details>
 <summary><strong>Wireframe</strong></summary>
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQTi7qBhetmWTMlXmrq0xh7%2FUntitled%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DGUJFTLl8E8qN0DkW-1" allowfullscreen></iframe>
+<a>https://www.figma.com/file/QTi7qBhetmWTMlXmrq0xh7/Untitled?type=design&node-id=0%3A1&mode=design&t=GUJFTLl8E8qN0DkW-1</a>
+</details>
 
+<details>
 <summary><strong>Adresse Github</strong></summary>
 <p>https://github.com/FlorentGATTI/Currency-converter</p>
+</details>
